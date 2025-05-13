@@ -2,6 +2,9 @@ package com.Domian;
 
 import com.Domian.Enums.ProjectStatus;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -17,6 +20,8 @@ import java.time.LocalDate;
 @Data
 @Builder
 public class ProjectEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message = "Name is required")
     private String name;

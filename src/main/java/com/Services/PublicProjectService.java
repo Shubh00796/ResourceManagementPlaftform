@@ -16,7 +16,6 @@ public interface PublicProjectService {
 
     List<PublicProjectManagementDTO> getProjectsByStatus(ProjectStatus status);
 
-    List<PublicProjectManagementDTO> getProjectsByLocation(String location);
 
     void deleteProject(Long id);
 
