@@ -1,3 +1,3 @@
 package com.Domian.Enums;
 
-public enum Status {PENDING, APPROVED, REJECTED}
+public enum Status {PENDING, APPROVED, REJECTED,CANCELLED}

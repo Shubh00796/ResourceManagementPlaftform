@@ -1,9 +1,6 @@
 package com.Reposiotry;
 
 import com.Domian.BorrowRequestEntity;
-import com.Domian.ResourceEntity;
-import com.Domian.UserEntity;
-import com.Domian.Enums.Status;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
