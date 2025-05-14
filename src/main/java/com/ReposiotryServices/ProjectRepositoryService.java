@@ -17,6 +17,9 @@ public class ProjectRepositoryService {
     public ProjectEntity createProject(ProjectEntity projectEntity) {
         return projectRepository.save(projectEntity);
     }
+    public boolean existsById(Long id) {
+        return projectRepository.existsById(id);
+    }
 
     public ProjectEntity updateProject(ProjectEntity projectEntity) {
         return projectRepository.save(projectEntity);

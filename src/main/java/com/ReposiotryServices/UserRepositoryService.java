@@ -1,10 +1,8 @@
 package com.ReposiotryServices;
 
-import com.DTOS.UserDTO;
 import com.Domian.UserEntity;
 import com.Exceptions.ResourceNotFoundException;
 import com.Reposiotry.UserRepository;
-import com.Services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +15,9 @@ public class UserRepositoryService {
 
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
+    }
+    public boolean existsById(Long id) {
+        return userRepository.existsById(id);
     }
 
     public UserEntity getUserById(Long id) {
