@@ -13,9 +13,6 @@ public interface PublicProjectManagementNotificationRepository extends JpaReposi
 
     List<PublicProjectManagementNotificationEntity> findByUserId(Long userId);
 
-    List<PublicProjectManagementNotificationEntity> findByProjectId(Long projectId);
 
-    List<PublicProjectManagementNotificationEntity> findByViewed(Boolean viewed);
 
-    List<PublicProjectManagementNotificationEntity> findByTimestamp(LocalDate timestamp);
 }

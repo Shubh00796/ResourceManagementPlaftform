@@ -11,7 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.Instant;
 
 @Entity
 @NoArgsConstructor
@@ -24,12 +24,10 @@ public class PublicProjectManagementNotificationEntity {
     private Long id;
     @NotNull(message = "User ID is required")
     private Long userId;
-    @NotNull(message = "Project ID is required")
-    private Long projectId;
     @NotBlank(message = "Message is required")
     private String message;
     @NotNull(message = "Timestamp is required")
-    private LocalDate timestamp;
+    private Instant timestamp;
     @NotNull(message = "Viewed status is required")
     private Boolean viewed;
 }
