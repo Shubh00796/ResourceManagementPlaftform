@@ -8,6 +8,8 @@ public interface InfluencerService {
 
     List<InfluencerDTO> getAllInfluencers();
 
+    List<InfluencerDTO> getBySocialMediaPlatform(String socialMediaPlatform);
+
     InfluencerDTO getInfluencerById(Long id);
 
     InfluencerDTO createInfluencer(InfluencerDTO influencer);
