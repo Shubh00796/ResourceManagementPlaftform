@@ -10,7 +10,7 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface InfluencerMapper {
 
-    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "id", source = "id")
     @Mapping(target = "name", source = "name")
     @Mapping(target = "socialMediaPlatform", source = "socialMediaPlatform")
     @Mapping(target = "followerCount", source = "followerCount")
@@ -26,6 +26,6 @@ public interface InfluencerMapper {
     @Mapping(target = "totalEarnings", source = "totalEarnings")
     InfluencerEntity toEntity(InfluencerDTO influencerDTO);
 
-    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "id", source = "id")
     void updateEntityFromDto(InfluencerDTO influencerDTO, @MappingTarget InfluencerEntity influencerEntity);
 }

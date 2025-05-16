@@ -9,7 +9,7 @@ import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
 public interface BrandMapper {
-    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "id", source = "id")
     @Mapping(target = "name", source = "name")
     @Mapping(target = "totalBudget", source = "totalBudget")
     @Mapping(target = "remainingBudget", source = "remainingBudget")
@@ -21,6 +21,6 @@ public interface BrandMapper {
     @Mapping(target = "remainingBudget", source = "remainingBudget")
     BrandEntity toEntity(BrandDTO brandDTO);
 
-    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "id", source = "id")
     void updateEntityFromDto(BrandDTO brandDTO, @MappingTarget BrandEntity brandEntity);
 }

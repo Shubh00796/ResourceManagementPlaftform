@@ -1,5 +1,6 @@
 package com.DTOS;
 
+import com.Domian.Enums.OfferStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,5 +15,5 @@ public class OfferDTO {
     private Long influencerId;
     private Long brandId;
     private Double amount;
-    private String status;
+    private OfferStatus status;
 }

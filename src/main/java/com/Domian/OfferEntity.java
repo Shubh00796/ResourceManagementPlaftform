@@ -1,8 +1,7 @@
 package com.Domian;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import com.Domian.Enums.OfferStatus;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,5 +19,6 @@ public class OfferEntity {
     private Long influencerId; // Foreign key to InfluencerEntity
     private Long brandId; // Foreign key to BrandEntity
     private Double amount;
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private OfferStatus status;
 }

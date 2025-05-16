@@ -19,4 +19,8 @@ public interface OfferService {
     List<OfferDTO> getOffersByInfluencerId(Long influencerId);
 
     List<OfferDTO> getOffersByBrandId(Long brandId);
+
+    OfferDTO acceptOffer(Long id);
+
+    OfferDTO rejectOffer(Long id);
 }
