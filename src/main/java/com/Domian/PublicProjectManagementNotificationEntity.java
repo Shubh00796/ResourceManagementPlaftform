@@ -26,6 +26,9 @@ public class PublicProjectManagementNotificationEntity {
     private Long userId;
     @NotBlank(message = "Message is required")
     private String message;
+
+    private Long projectId;
+
     @NotNull(message = "Timestamp is required")
     private Instant timestamp;
     @NotNull(message = "Viewed status is required")
