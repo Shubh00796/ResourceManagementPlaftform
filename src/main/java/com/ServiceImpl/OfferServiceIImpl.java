@@ -21,7 +21,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service
@@ -145,29 +148,31 @@ public class OfferServiceIImpl implements OfferService {
     }
 
     private void validateOfferCreationConditions(OfferDTO offer) {
-        if (offer == null) {
-            throw new NullPointerException("Offer cannot be null");
-        }
-        if (offer.getBrandId() == null) {
-            throw new IllegalArgumentException("Brand ID must not be null");
-        }
-        if (offer.getInfluencerId() == null) {
-            throw new IllegalArgumentException("Influencer ID must not be null");
-        }
+        Objects.requireNonNull(offer, "Offer cannot be null");
+        Objects.requireNonNull(offer.getBrandId(), "Brand ID must not be null");
+        Objects.requireNonNull(offer.getInfluencerId(), "Influencer ID must not be null");
 
-        InfluencerDTO influencerDTO = influencerService.getInfluencerById(offer.getInfluencerId());
-        if (influencerDTO == null) {
-            throw new ResourceNotFoundException("Influencer not found with ID: " + offer.getInfluencerId());
-        }
+        validateInfluencerExistence(offer.getInfluencerId());
+        validateBrandExistence(offer.getBrandId());
+        validateBrandBudget(offer);
+    }
 
+    private void validateInfluencerExistence(Long influencerId) {
+        Optional<InfluencerDTO> influencerDTO = Optional.ofNullable(influencerService.getInfluencerById(influencerId));
+        influencerDTO.orElseThrow(() -> new ResourceNotFoundException("Influencer not found with ID: " + influencerId));
+    }
+
+    private void validateBrandExistence(Long brandId) {
+        Optional<BrandDTO> brandDTO = Optional.ofNullable(brandService.getBrandById(brandId));
+        brandDTO.orElseThrow(() -> new ResourceNotFoundException("Brand not found with ID: " + brandId));
+    }
+
+    private void validateBrandBudget(OfferDTO offer) {
         BrandDTO brandDTO = brandService.getBrandById(offer.getBrandId());
-        if (brandDTO == null) {
-            throw new ResourceNotFoundException("Brand not found with ID: " + offer.getBrandId());
-        }
-
-        if (brandDTO.getRemainingBudget() < offer.getAmount()) {
-            throw new InsufficientBudgetException("Insufficient budget for the brand to make this offer");
-        }
+        Predicate<BrandDTO> hasSufficientBudget = b -> b.getRemainingBudget().compareTo(offer.getAmount()) >= 0;
+        Optional.ofNullable(brandDTO)
+                .filter(hasSufficientBudget)
+                .orElseThrow(() -> new InsufficientBudgetException("Insufficient budget for the brand to make this offer"));
     }
 
     private void engagementOfBrandAndInfluencerForMakingTheOfferorAfterTheOffer(OfferEntity offerEntity) {

@@ -3,7 +3,7 @@ package com.ReposiotryServices;
 import com.Domian.Enums.ProjectStatus;
 import com.Domian.ProjectEntity;
 import com.Exceptions.ResourceNotFoundException;
-import com.Reposiotry.ProjectRepository;
+import com.Repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

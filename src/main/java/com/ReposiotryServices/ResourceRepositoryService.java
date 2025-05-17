@@ -1,15 +1,11 @@
 package com.ReposiotryServices;
 
-import com.DTOS.ResourceDTO;
 import com.Domian.ResourceEntity;
-import com.Domian.UserEntity;
 import com.Exceptions.ResourceNotFoundException;
-import com.Reposiotry.ResourceRepository;
-import com.Services.ResourceService;
+import com.Repository.ResourceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.lang.ref.ReferenceQueue;
 import java.util.List;
 
 @Component

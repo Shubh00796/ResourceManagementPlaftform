@@ -2,7 +2,7 @@ package com.ReposiotryServices;
 
 import com.Domian.UserEntity;
 import com.Exceptions.ResourceNotFoundException;
-import com.Reposiotry.UserRepository;
+import com.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

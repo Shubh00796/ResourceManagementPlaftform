@@ -1,4 +1,4 @@
-package com.Reposiotry;
+package com.Repository;
 
 import com.Domian.Song;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,8 +12,8 @@ import java.util.List;
 public interface SongRepository extends JpaRepository<Song, Long> {
 
     @Query("SELECT s FROM Song s WHERE s.albumId = :albumId")
-    List<Song> findSongsByAlbumId(@Param("albumId") Long albumId);
+    List<Song> findByAlbumId(@Param("albumId") Long albumId);
 
     @Query("SELECT s FROM Song s WHERE s.artistIds IN :artistIds")
-    List<Song> findSongsByArtistIds(@Param("artistIds") List<Long> artistIds);
+    List<Song> findByArtistIds(@Param("artistIds") List<Long> artistIds);
 }

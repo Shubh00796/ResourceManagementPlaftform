@@ -3,7 +3,7 @@ package com.ReposiotryServices;
 import com.Domian.Enums.MilestoneStatus;
 import com.Domian.PublicProjectManagementMilestoneEntity;
 import com.Exceptions.ResourceNotFoundException;
-import com.Reposiotry.PublicProjectManagementMilestoneRepository;
+import com.Repository.PublicProjectManagementMilestoneRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

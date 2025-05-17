@@ -2,7 +2,7 @@ package com.ReposiotryServices;
 
 import com.Domian.PublicProjectManagementFeedbackEntity;
 import com.Exceptions.ResourceNotFoundException;
-import com.Reposiotry.PublicProjectManagementFeedbackRepository;
+import com.Repository.PublicProjectManagementFeedbackRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

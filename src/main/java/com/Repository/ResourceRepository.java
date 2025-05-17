@@ -1,9 +1,7 @@
-package com.Reposiotry;
+package com.Repository;
 
 
 import com.Domian.ResourceEntity;
-import com.Domian.UserEntity;
-import jdk.jfr.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

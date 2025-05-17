@@ -2,7 +2,7 @@ package com.ReposiotryServices;
 
 import com.Domian.BrandEntity;
 import com.Exceptions.ResourceNotFoundException;
-import com.Reposiotry.BrandRepository;
+import com.Repository.BrandRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

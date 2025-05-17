@@ -1,4 +1,4 @@
-package com.Reposiotry;
+package com.Repository;
 
 import com.Domian.PublicProjectManagementFeedbackEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

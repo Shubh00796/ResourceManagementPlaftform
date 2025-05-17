@@ -1,12 +1,10 @@
 package com.ReposiotryServices;
 
-import com.DTOS.EventDTO;
 import com.Domian.Enums.EventCategory;
 import com.Domian.Enums.Status;
 import com.Domian.EventEntity;
 import com.Exceptions.ResourceNotFoundException;
-import com.Reposiotry.EventRepository;
-import com.Services.EventService;
+import com.Repository.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

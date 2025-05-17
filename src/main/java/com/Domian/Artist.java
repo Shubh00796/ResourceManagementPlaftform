@@ -24,4 +24,6 @@ public class Artist {
     private List<Long> albumIds;
     @Column(columnDefinition = "JSON")
     private List<Long> songIds;
+    @Version
+    private Long version;
 }

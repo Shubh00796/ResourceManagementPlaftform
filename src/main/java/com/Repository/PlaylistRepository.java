@@ -1,4 +1,4 @@
-package com.Reposiotry;
+package com.Repository;
 
 import com.Domian.Playlist;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,5 +12,5 @@ import java.util.List;
 public interface PlaylistRepository extends JpaRepository<Playlist, Long> {
 
     @Query("SELECT p FROM Playlist p WHERE p.songIds IN :songIds")
-    List<Playlist> findPlaylistsBySongIds(@Param("songIds") List<Long> songIds);
+    List<Playlist> findBySongIds(@Param("songIds") List<Long> songIds);
 }

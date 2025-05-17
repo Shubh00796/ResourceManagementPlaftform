@@ -1,10 +1,8 @@
 package com.ReposiotryServices;
 
-import com.DTOS.BorrowRequestDTO;
 import com.Domian.BorrowRequestEntity;
-import com.Domian.UserEntity;
 import com.Exceptions.ResourceNotFoundException;
-import com.Reposiotry.BorrowRequestRepository;
+import com.Repository.BorrowRequestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

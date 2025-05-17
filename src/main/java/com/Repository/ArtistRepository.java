@@ -1,4 +1,4 @@
-package com.Reposiotry;
+package com.Repository;
 
 import com.Domian.Artist;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,9 +11,10 @@ import java.util.List;
 @Repository
 public interface ArtistRepository extends JpaRepository<Artist, Long> {
 
-    @Query("SELECT a FROM Artist a WHERE a.albumIds IN :albumIds")
-    List<Artist> findArtistsByAlbumIds(@Param("albumIds") List<Long> albumIds);
 
-    @Query("SELECT a FROM Artist a WHERE a.songIds IN :songIds")
-    List<Artist> findArtistsBySongIds(@Param("songIds") List<Long> songIds);
+    @Query("SELECT a FROM Artist a WHERE a.albumIds IN :albumIds")
+    List<Artist> findByAlbumIds(@Param("albumIds") List<Long> albumIds);
+
+    @Query(value = "SELECT * FROM artist WHERE JSON_CONTAINS(songIds, :songIds, '$[*]')", nativeQuery = true)
+    List<Artist> findABySongIds(@Param("songIds") List<Long> songIds);
 }

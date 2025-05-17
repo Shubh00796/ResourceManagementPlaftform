@@ -1,4 +1,4 @@
-package com.Reposiotry;
+package com.Repository;
 
 import com.Domian.Enums.EventCategory;
 import com.Domian.Enums.Status;

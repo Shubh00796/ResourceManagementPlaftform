@@ -5,7 +5,7 @@ import com.Domian.Enums.EventCategory;
 import com.Domian.Enums.Status;
 import com.Domian.EventEntity;
 import com.Mapper.EventMapper;
-import com.Reposiotry.OrganizerRepository;
+import com.Repository.OrganizerRepository;
 import com.ReposiotryServices.EventRepositoryService;
 import com.Services.EventService;
 import jakarta.validation.ConstraintViolation;
@@ -42,17 +42,21 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventDTO createEvent(EventDTO event) {
+        extracted(event);
+        EventEntity eventEntity = mapper.toEntity(event);
+        validateEvnet(eventEntity);
+        EventEntity eventSavedToRepo = repositoryService.saveEventToRepo(eventEntity);
+
+        return mapper.toDto(eventSavedToRepo);
+    }
+
+    private void extracted(EventDTO event) {
         if (event.getOrganizerId() == null) {
             throw new RuntimeException("Organizer ID is required to create an event");
         }
         if (!repository.existsById(event.getOrganizerId())) {
             throw new RuntimeException("Organizer with ID " + event.getOrganizerId() + " does not exist");
         }
-        EventEntity eventEntity = mapper.toEntity(event);
-        validateEvnet(eventEntity);
-        EventEntity eventSavedToRepo = repositoryService.saveEventToRepo(eventEntity);
-
-        return mapper.toDto(eventSavedToRepo);
     }
 
     @Override

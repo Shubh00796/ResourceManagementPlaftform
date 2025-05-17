@@ -16,6 +16,8 @@ public class ArtistDTO {
     private Long id;
     private String name;
     private String genre;
+    private Long version;
+
     private List<Long> albumIds;
     private List<Long> songIds;
 }

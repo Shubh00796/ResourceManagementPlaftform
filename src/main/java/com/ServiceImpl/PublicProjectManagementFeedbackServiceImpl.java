@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -38,19 +39,26 @@ public class PublicProjectManagementFeedbackServiceImpl implements PublicProject
     }
 
     private void validationOfIdsForCreatingFeedback(PublicProjectManagementFeedbackDTO feedbackDTO) {
-        if (feedbackDTO.getProjectId() == null) {
-            throw new RuntimeException("Project id is required to create an Feedback");
-        }
-        if (feedbackDTO.getUserId() == null) {
-            throw new RuntimeException("userID id is required to create an Feedback");
-        }
-        if (!projectRepositoryService.existsById(feedbackDTO.getProjectId())) {
-            throw new RuntimeException("Project with ID " + feedbackDTO.getProjectId() + " does not exist");
-        }
+
+        Objects.requireNonNull(feedbackDTO.getProjectId(), "Offer cannot be null");
+        Objects.requireNonNull(feedbackDTO.getUserId(), "userID id is required to create an Feedback");
+
+
+        extracted(feedbackDTO);
+
+    }
+
+    private void extracted(PublicProjectManagementFeedbackDTO feedbackDTO) {
+        extracted1(feedbackDTO);
         if (!userRepositoryService.existsById(feedbackDTO.getUserId())) {
             throw new RuntimeException("User with ID " + feedbackDTO.getUserId() + " does not exist");
         }
+    }
 
+    private void extracted1(PublicProjectManagementFeedbackDTO feedbackDTO) {
+        if (!projectRepositoryService.existsById(feedbackDTO.getProjectId())) {
+            throw new RuntimeException("Project with ID " + feedbackDTO.getProjectId() + " does not exist");
+        }
     }
 
     @Override

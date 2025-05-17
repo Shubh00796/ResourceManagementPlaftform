@@ -1,4 +1,4 @@
-package com.Reposiotry;
+package com.Repository;
 
 import com.Domian.Enums.ProjectStatus;
 import com.Domian.ProjectEntity;

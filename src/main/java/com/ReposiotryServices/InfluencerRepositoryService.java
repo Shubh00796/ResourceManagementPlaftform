@@ -2,7 +2,7 @@ package com.ReposiotryServices;
 
 import com.Domian.InfluencerEntity;
 import com.Exceptions.ResourceNotFoundException;
-import com.Reposiotry.InfluencerRepository;
+import com.Repository.InfluencerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

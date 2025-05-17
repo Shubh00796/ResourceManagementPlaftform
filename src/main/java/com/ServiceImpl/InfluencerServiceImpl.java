@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -71,13 +72,11 @@ public class InfluencerServiceImpl implements InfluencerService {
 
     @Override
     public void deleteInfluencer(Long id) {
-        if (id == null) {
-            throw new NullPointerException("Brand ID cannot be null");
-        }
 
-        if (!(id instanceof Long)) {
-            throw new ClassCastException("Brand ID must be of type Long");
-        }
+        Objects.requireNonNull(id, "Offer cannot be null");
+
+
+
         repositoryService.deleteInfluencer(id);
 
     }

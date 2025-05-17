@@ -1,4 +1,4 @@
-package com.Reposiotry;
+package com.Repository;
 
 import com.Domian.BorrowRequestEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
